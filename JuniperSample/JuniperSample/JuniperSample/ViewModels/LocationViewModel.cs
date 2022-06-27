@@ -91,8 +91,6 @@ namespace JuniperSample.ViewModels
 
 		}
 
-		/*{"rate":{"city":"PRIOR LAKE","city_rate":"0.0","combined_district_rate":"0.0","combined_rate":"0.07375",
-		"country":"US","country_rate":"0.0","county":"SCOTT","county_rate":"0.005","freight_taxable":true,"state":"MN","state_rate":"0.06875","zip":"55378"}}*/
 		public Command CalculateCommand { get; }
 		private async void OnCalculateClicked(object obj)
 		{
