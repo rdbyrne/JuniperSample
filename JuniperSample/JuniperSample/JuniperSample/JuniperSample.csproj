@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Plugins.FluentValidation" Version="3.0.64" />
+    <PackageReference Include="Refit" Version="6.3.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Xamarin.CommunityToolkit" />
+    <None Remove="Validations\" />
+    <None Remove="FluentValidation" />
+    <None Remove="Xamarin.Plugins.FluentValidation" />
+    <None Remove="TaxJar" />
+    <None Remove="TaxCalculators\" />
+    <None Remove="Refit" />
+    <None Remove="Api\" />
+    <None Remove="TaxCalculators\Exceptions\" />
+    <None Remove="TinyIoC" />
+    <None Remove="XLabs.IoC.TinyIoC" />
+    <None Remove="Autofac" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Validations\" />
+    <Folder Include="TaxCalculators\" />
+    <Folder Include="Api\" />
+    <Folder Include="TaxCalculators\Exceptions\" />
+  </ItemGroup>
+</Project>

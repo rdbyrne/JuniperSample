@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="JuniperSample.Views.LocationPage"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#F4F4F4</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="JuniperCommerce.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                <Label Text="Get Tax Rate for Location" TextColor="black" FontSize="Title"/>
+                <Label Text="Note: Country is set to US for this demo" TextColor="black" FontSize="16" Padding="0,0,0,0"/>
+                <Entry Placeholder="Enter Zip Code" Text="{Binding ZipCode, Mode=TwoWay}"/>
+                <Label TextColor="Red" Text="{Binding CalcuateError}"/>
+                <Button Margin="0,10,0,0" Text="Calculate"
+                        Command="{Binding CalculateCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+                <Grid IsVisible="{Binding HasResult}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*"/>
+                        <ColumnDefinition Width=".5*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Should pull styles out-->
+                     <StackLayout Grid.Column="0" Orientation="Vertical">
+                         <Label TextColor="black" Text="Combined Distruct Rate:"/>
+                         <Label TextColor="black" Text="Combined Rate:"/>
+                         <Label TextColor="black" Text="Country Rate:"/>
+                         <Label TextColor="black" Text="County Rate:"/>
+                         <Label TextColor="black" Text="State Rate: "/>
+                         <Label TextColor="black" Text="City Rate:"/>
+                     </StackLayout>
+                     <StackLayout Grid.Column="1" Orientation="Vertical">
+                         <Label Text="{Binding CombinedDistrictRate}" FontAttributes="Bold" TextColor="black"/>
+                         <Label Text="{Binding CombinedRate}" FontAttributes="Bold" TextColor="black"/>
+                         <Label Text="{Binding CountryRate}" FontAttributes="Bold" TextColor="black"/>
+                         <Label Text="{Binding CountyRate}" FontAttributes="Bold" TextColor="black"/>
+                         <Label Text="{Binding StateRate}" FontAttributes="Bold" TextColor="black"/>
+                         <Label Text="{Binding CityRate}" FontAttributes="Bold" TextColor="black"/>
+                     </StackLayout>
+            </Grid>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
+

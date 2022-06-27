@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="JuniperSample.Views.OrderPage"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#F4F4F4</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                        <Image Source="JuniperCommerce.png" VerticalOptions="Center" HeightRequest="64" />
+                    </ContentView>
+                </StackLayout>
+            </StackLayout>
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+                    <Label Text="Get Tax For order" FontSize="Title" TextColor="Black"/>
+                    <Label Text="Note: To and From locations are hardcoded for this demo" TextColor="Black" FontSize="16" Padding="0,0,0,0"/>
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Label Text="Order total amount:" VerticalOptions="Center" TextColor="Black"/>
+                        <Entry  Text="{Binding Total, Mode=TwoWay}" HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Label Text="Shipping amount:" VerticalOptions="Center" TextColor="Black"/>
+                        <Entry  Text="{Binding ShippingTotal, Mode=TwoWay}" HorizontalOptions="FillAndExpand" Keyboard="Numeric"/>
+                    </StackLayout>
+                    <Label TextColor="Red" Text="{Binding CalcuateError}"/>
+                    <Button Margin="0,10,0,0" Text="Calculate Sales Tax"
+                                Command="{Binding CalculateCommand}"
+                                BackgroundColor="{StaticResource Primary}"
+                                TextColor="White" />
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+                    <Label TextColor="Black" FontSize="20" Text="{Binding CalculatedSalesTaxText}"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+</ContentPage>
+
