@@ -113,7 +113,7 @@ namespace JuniperSample.ViewModels
 
 			var output = locationValidation.Validate(this);
 			if(!output.IsValid)
-            {
+                        {
 				CalcuateError = "Please enter a valid zip code";
 				return;
 			}
