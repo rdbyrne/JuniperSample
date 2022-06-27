@@ -110,7 +110,7 @@ namespace JuniperSample.ViewModels
 			}
 
 
-			IsBusy = true;
+			
 			HasResult = false;
 
 			var output = locationValidation.Validate(this);
@@ -119,6 +119,8 @@ namespace JuniperSample.ViewModels
 				CalcuateError = "Please enter a valid zip code";
 				return;
 			}
+			
+			IsBusy = true;
 
 			try {
 				CalcuateError = string.Empty;
